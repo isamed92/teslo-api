@@ -45,11 +45,12 @@ export class Product {
   @Column('text')
   gender: string;
 
-  //tags
+  @Column('text', { array: true, default: [] })
+  tags: string[];
   //images
 
   @BeforeInsert()
-  sanitizeSlugInsert() {
+  checkSlugInsert() {
     if (!this.slug) {
       this.slug = this.title;
     }
@@ -57,7 +58,17 @@ export class Product {
       .toLowerCase()
       .replaceAll(' ', '_')
       .replaceAll("'", '');
+
+    this.tags = this.tags.map((e) => e.toLowerCase());
   }
 
-  // @BeforeUpdate()
+  @BeforeUpdate()
+  checkSlugUpdate() {
+    this.slug = this.slug
+      .toLowerCase()
+      .replaceAll(' ', '_')
+      .replaceAll("'", '');
+
+    this.tags = this.tags.map((e) => e.toLowerCase());
+  }
 }
