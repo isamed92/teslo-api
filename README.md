@@ -21,3 +21,9 @@ docker-compose up -d
 ```
 npm run start:dev
 ```
+
+6. ejecutar el seed para llenar la base de datos con datos de prueba
+
+```
+http://localhost:3000/api/seed
+```
