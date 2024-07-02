@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-  Get,
-  UseGuards,
-  SetMetadata,
-} from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto, LoginUserDto } from './dto';
 import { AuthGuard } from '@nestjs/passport';
@@ -59,12 +52,9 @@ export class AuthController {
     };
   }
 
-  @Get('private3')
-  @Auth(ValidRoles.superUser)
-  privateRoute3(@GetUser() user: User) {
-    return {
-      ok: true,
-      user,
-    };
+  @Get('check-status')
+  @Auth()
+  checkStatus(@GetUser() user: User) {
+    return this.authService.checkStatus(user);
   }
 }
