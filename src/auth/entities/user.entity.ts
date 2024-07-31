@@ -1,4 +1,5 @@
 import { IsArray, IsBoolean, IsString } from 'class-validator';
+import { Employee } from 'src/enterprise/entities';
 import { Product } from 'src/product/entities';
 import {
   BeforeInsert,
@@ -6,6 +7,7 @@ import {
   Column,
   Entity,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -44,6 +46,20 @@ export class User {
 
   @OneToMany(() => Product, (product) => product.user)
   product: Product[];
+
+  @Column('timestamp', {
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  createdAt: Date;
+
+  @Column('timestamp', {
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updatedAt: Date;
+
+  @OneToOne(() => Employee, (employee) => employee.user)
+  employee: Employee;
 
   @BeforeInsert()
   checkFieldsBeforeInsert() {

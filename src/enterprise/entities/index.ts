@@ -1,0 +1,11 @@
+export { Address } from './address.entity';
+export { Area } from './area.entity';
+export { Department } from './deparment.entity';
+export { Email } from './email.entity';
+export { Employee } from './employee.entity';
+export { EmployeePosition } from './employee-position.entity';
+export { Level } from './level.entity';
+export { Person } from './person.entity';
+export { Phone } from './phone.entity';
+export { Position } from './position.entity';
+export { Section } from './section.entity';
