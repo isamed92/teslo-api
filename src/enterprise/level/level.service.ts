@@ -61,13 +61,20 @@ export class LevelService {
   }
 
   async remove(id: string) {
-    const level = await this.findOne(id);
-    return await this.levelRepository.remove(level);
+    try {
+      const level = await this.findOne(id);
+      return await this.levelRepository.remove(level);
+    } catch (error) {
+      this.handleDBExceptions(error);
+    }
   }
 
   private handleDBExceptions(error: any) {
     if (error.code === '23505') {
       throw new BadRequestException(error.detail);
+    }
+    if (error.code === '23503') {
+      throw new BadRequestException('Invalid foreign key constraint');
     }
 
     this.logger.error(error);

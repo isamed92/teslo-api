@@ -1,6 +1,6 @@
 export { Address } from './address.entity';
 export { Area } from './area.entity';
-export { Department } from './deparment.entity';
+export { Department } from './department.entity';
 export { Email } from './email.entity';
 export { Employee } from './employee.entity';
 export { EmployeePosition } from './employee-position.entity';
