@@ -21,6 +21,7 @@ import { LevelModule } from './level/level.module';
 import { AreaModule } from './area/area.module';
 import { DepartmentModule } from './department/department.module';
 import { SectionModule } from './section/section.module';
+import { PersonModule } from './person/person.module';
 
 @Module({
   controllers: [EnterpriseController, LevelController],
@@ -44,6 +45,7 @@ import { SectionModule } from './section/section.module';
     AreaModule,
     DepartmentModule,
     SectionModule,
+    PersonModule,
   ],
 })
 export class EnterpriseModule {}

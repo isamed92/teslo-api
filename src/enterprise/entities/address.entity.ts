@@ -11,6 +11,9 @@ export class Address {
   @IsString()
   street: string;
 
-  @ManyToOne(() => Person, (person) => person.address, { eager: true })
+  @ManyToOne(() => Person, (person) => person.address, {
+    eager: true,
+    onDelete: 'CASCADE',
+  })
   person: Person;
 }

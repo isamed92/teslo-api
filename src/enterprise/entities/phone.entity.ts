@@ -15,6 +15,9 @@ export class Phone {
   @IsString()
   number: string;
 
-  @ManyToOne(() => Person, (person) => person.phone, { eager: true })
+  @ManyToOne(() => Person, (person) => person.phone, {
+    eager: true,
+    onDelete: 'CASCADE',
+  })
   person: Person;
 }

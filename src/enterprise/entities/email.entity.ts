@@ -12,6 +12,6 @@ export class Email {
   @IsEmail()
   address: string;
 
-  @ManyToOne(() => Person, (person) => person.email, { eager: true })
+  @ManyToOne(() => Person, (person) => person.email, { onDelete: 'CASCADE' })
   person: Person;
 }

@@ -30,13 +30,13 @@ export class Person {
   @MaxLength(1)
   gender: string;
 
-  @OneToMany(() => Phone, (phone) => phone.person)
+  @OneToMany(() => Phone, (phone) => phone.person, { cascade: true })
   phone: Phone[];
 
-  @OneToMany(() => Address, (address) => address.person)
+  @OneToMany(() => Address, (address) => address.person, { cascade: true })
   address: Address[];
 
-  @OneToMany(() => Email, (email) => email.person)
+  @OneToMany(() => Email, (email) => email.person, { cascade: true })
   email: Email[];
 
   @OneToOne(() => Employee, (employee) => employee.person)
