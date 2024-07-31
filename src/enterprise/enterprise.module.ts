@@ -15,11 +15,14 @@ import {
   Position,
   Section,
 } from './entities';
+import { LevelController } from './level/level.controller';
+import { LevelService } from './level/level.service';
+import { LevelModule } from './level/level.module';
 
 @Module({
-  controllers: [EnterpriseController],
-  providers: [EnterpriseService],
-  exports: [EnterpriseService],
+  controllers: [EnterpriseController, LevelController],
+  providers: [EnterpriseService, LevelService],
+  exports: [EnterpriseService, LevelService],
   imports: [
     TypeOrmModule.forFeature([
       Address,
@@ -34,6 +37,7 @@ import {
       Position,
       Section,
     ]),
+    LevelModule,
   ],
 })
 export class EnterpriseModule {}

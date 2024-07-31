@@ -9,6 +9,7 @@ import { FilesModule } from './files/files.module';
 // import { ServeStaticModule } from '@nestjs/serve-static';
 import { AuthModule } from './auth/auth.module';
 import { EnterpriseModule } from './enterprise/enterprise.module';
+import { LevelController } from './enterprise/level/level.controller';
 
 @Module({
   imports: [
@@ -33,7 +34,7 @@ import { EnterpriseModule } from './enterprise/enterprise.module';
     AuthModule,
     EnterpriseModule,
   ],
-  controllers: [],
+  controllers: [LevelController],
   providers: [],
 })
 export class AppModule {}
