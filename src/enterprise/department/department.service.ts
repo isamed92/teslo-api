@@ -21,14 +21,14 @@ export class DepartmentService {
 
   async create(createDepartmentDto: CreateDepartmentDto) {
     try {
-      const area = this.departmentRepository.create(createDepartmentDto);
+      const department = this.departmentRepository.create(createDepartmentDto);
 
       await this.departmentRepository.save({
-        ...area,
+        ...department,
         createdAt: new Date(),
         level: { id: createDepartmentDto.levelId },
       });
-      return { ...area };
+      return { ...department };
     } catch (error) {
       this.handleDBExceptions(error);
     }

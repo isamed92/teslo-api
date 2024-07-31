@@ -20,6 +20,7 @@ import { LevelService } from './level/level.service';
 import { LevelModule } from './level/level.module';
 import { AreaModule } from './area/area.module';
 import { DepartmentModule } from './department/department.module';
+import { SectionModule } from './section/section.module';
 
 @Module({
   controllers: [EnterpriseController, LevelController],
@@ -42,6 +43,7 @@ import { DepartmentModule } from './department/department.module';
     LevelModule,
     AreaModule,
     DepartmentModule,
+    SectionModule,
   ],
 })
 export class EnterpriseModule {}
