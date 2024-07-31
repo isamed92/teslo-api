@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -29,15 +30,18 @@ export class Employee {
   @Column('date')
   endDate: Date;
 
-  @OneToOne(() => Person, (person) => person.employee)
+  @OneToOne(() => Person, (person) => person.employee, { eager: true })
+  @JoinColumn()
   person: Person;
 
-  @OneToOne(() => User, (user) => user.employee)
+  @OneToOne(() => User, (user) => user.employee, { eager: true })
+  @JoinColumn()
   user: User;
 
   @OneToMany(
     () => EmployeePosition,
     (employeePosition) => employeePosition.employee,
+    { eager: true },
   )
   employeePositions: EmployeePosition[];
 }

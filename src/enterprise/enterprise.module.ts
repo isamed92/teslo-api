@@ -22,11 +22,13 @@ import { AreaModule } from './area/area.module';
 import { DepartmentModule } from './department/department.module';
 import { SectionModule } from './section/section.module';
 import { PersonModule } from './person/person.module';
+import { EmployeesModule } from './employees/employees.module';
+import { PositionsModule } from './positions/positions.module';
 
 @Module({
   controllers: [EnterpriseController, LevelController],
   providers: [EnterpriseService, LevelService],
-  exports: [EnterpriseService, LevelService],
+  exports: [EnterpriseService, LevelService, EmployeesModule],
   imports: [
     TypeOrmModule.forFeature([
       Address,
@@ -46,6 +48,8 @@ import { PersonModule } from './person/person.module';
     DepartmentModule,
     SectionModule,
     PersonModule,
+    EmployeesModule,
+    PositionsModule,
   ],
 })
 export class EnterpriseModule {}

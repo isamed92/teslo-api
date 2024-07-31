@@ -2,6 +2,7 @@ import { IsString, MaxLength } from 'class-validator';
 import {
   Column,
   Entity,
+  JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -40,5 +41,6 @@ export class Person {
   email: Email[];
 
   @OneToOne(() => Employee, (employee) => employee.person)
+  @JoinColumn()
   employee: Employee;
 }

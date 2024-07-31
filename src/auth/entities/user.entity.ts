@@ -6,6 +6,7 @@ import {
   BeforeUpdate,
   Column,
   Entity,
+  JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -59,6 +60,7 @@ export class User {
   updatedAt: Date;
 
   @OneToOne(() => Employee, (employee) => employee.user)
+  @JoinColumn()
   employee: Employee;
 
   @BeforeInsert()
