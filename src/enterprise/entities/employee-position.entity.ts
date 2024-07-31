@@ -21,9 +21,9 @@ export class EmployeePosition {
   @IsDate()
   startDate: Date;
 
-  @Column('date')
+  @Column('date', { nullable: true })
   @IsDate()
-  endDate: Date;
+  endDate?: Date;
 
   @ManyToOne(() => Employee, (employee) => employee.employeePositions)
   employee: Employee;

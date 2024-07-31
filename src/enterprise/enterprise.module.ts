@@ -24,6 +24,7 @@ import { SectionModule } from './section/section.module';
 import { PersonModule } from './person/person.module';
 import { EmployeesModule } from './employees/employees.module';
 import { PositionsModule } from './positions/positions.module';
+import { EmployeesPositionsModule } from './employees-positions/employees-positions.module';
 
 @Module({
   controllers: [EnterpriseController, LevelController],
@@ -50,6 +51,7 @@ import { PositionsModule } from './positions/positions.module';
     PersonModule,
     EmployeesModule,
     PositionsModule,
+    EmployeesPositionsModule,
   ],
 })
 export class EnterpriseModule {}
